@@ -2,7 +2,7 @@
 
 The project is done with the help of flask for creating a backend API and sqlarSQLAlchemy for providing the database support.
 
-All the functionalities are shown with the help of screenshots those can be found with this repositiry.
+All the functionalities are shown with the help of screenshots those can be found with this repository.
 All the test cases can also be looked upon with the help of screenshots.
 
 Functions performing respective tasks in app.py file-
