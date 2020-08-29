@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+   <head></head>
+   <body>
+     
+      <h3>
+         <a href = "{{ url_for('show') }}">Tickets</a>
+      </h3>
+      
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+		
+      <h3>Tickets (<a href = "{{ url_for('query') }}">Actions
+         </a>)</h3>
+      <h3>All tickets</h3>
+      <table>
+         <thead>
+            <tr>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Phone</th>
+               <th>Time</th>
+               <th>Expired</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for ticket in tickets %}
+               <tr>
+                  <td>{{ ticket.id }}</td>
+                  <td>{{ ticket.name }}</td>
+                  <td>{{ ticket.phone }}</td>
+                  <td>{{ ticket.time }}</td>
+                  <td>{{ ticket.expired }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+<hr>
+      <h3>Tickets at a given time</h3>
+      <table>
+         <thead>
+            <tr>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Phone</th>
+               <th>Time</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for ticket in ticketsattime %}
+               <tr>
+                  <td>{{ ticket.id}}</td>
+                  <td>{{ ticket.name }}</td>
+                  <td>{{ ticket.phone }}</td>
+                  <td>{{ ticket.time }}</td>
+                 
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <hr>
+
+      <h3>Find by ID</h3>
+      <table>
+         <thead>
+            <tr>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Phone</th>
+               <th>Time</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+              {% for ticket in found %}
+               <tr>
+                  <td>{{ ticket.id}}</td>
+                  <td>{{ ticket.name }}</td>
+                  <td>{{ ticket.phone }}</td>
+                  <td>{{ ticket.time }}</td>
+               </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+
+      <hr>
+      <p>{{diff}}</p>
+   </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   <body>
+   
+      <h3>Ticket Booking system</h3>
+      <hr/>
+      
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+      <h3>Insert</h3>
+      <form action = "{{ request.path }}" method = "post">
+         <label for = "name">Name</label><br>
+         <input type = "text" name = "name" placeholder = "Name" /><br>
+         <label for = "phone">Phone</label><br>
+         <input type = "text" name = "phone" placeholder = "phone" /><br>
+         <label for = "time">Time</label><br>
+         <input type = "datetime-local" step="1" name = "time" placeholder = "Time" /><br>
+         <input type = "submit" value = "Submit" />
+      </form>
+      <hr>
+      <h3>Update time</h3>
+      <form action = "{{ url_for('update') }}" method = "post">
+         <label for = "name">Name</label><br>
+         <input type = "text" name = "name" placeholder = "Name" /><br>
+         <label for = "phone">Phone</label><br>
+         <input type = "text" name = "phone" placeholder = "phone" /><br>
+         <label for = "time">Time</label><br>
+         <input type = "datetime-local" step="1" name = "time" placeholder = "Time" /><br>
+         <input type = "submit" value = "Update" />
+      </form>
+      <hr>
+
+      <h3>Find for a time</h3>
+      <form action = "{{ url_for('allattime') }}" method = "post">
+         <label for = "time">Time</label><br>
+         <input type = "datetime-local" step="1" name = "time" placeholder = "Time" /><br>
+         <input type = "submit" value = "Update" />
+      </form>
+      <hr>
+      <h3>Delete Particular ticket</h3>
+      <form action = "{{ url_for('deleteparticular') }}" method = "post">
+         <label for = "phone">Phone</label><br>
+         <input type = "text" name = "phone" placeholder = "phone" /><br>
+         <input type = "submit" value = "Delete" />
+      </form>
+      <hr>
+      <hr>
+      <h3>Find using ID</h3>
+      <form action = "{{ url_for('findusingid') }}" method = "post">
+         <label for = "id">ID</label><br>
+         <input type = "text"  name = "id" placeholder = "id" /><br>
+         <input type = "submit" value = "Find" />
+      </form>
+      <hr>
+      <h3>Mark tickets expired</h3>
+      <form action = "{{ url_for('deletegreat8') }}" method = "post">
+         <input type = "submit" value = "Find" />
+      </form>
+   </body>
+</html>
